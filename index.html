@@ -349,6 +349,14 @@ document.getElementById("adminModal").addEventListener("click", (e) => {
     document.getElementById("adminModal").classList.add("hidden");
   }
 });
+document.getElementById("adminCloseBtn").addEventListener("click", () => {
+  document.getElementById("adminModal").classList.add("hidden");
+});
+document.getElementById("adminModal").addEventListener("click", (e) => {
+  if (e.target.id === "adminModal") {
+    document.getElementById("adminModal").classList.add("hidden");
+  }
+});
 </script>
 </body>
 </html>
