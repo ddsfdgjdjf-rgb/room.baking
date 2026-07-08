@@ -340,6 +340,14 @@ document.getElementById("bookingForm").addEventListener("submit", (e) => {
 bookingsRef.on("value", (snapshot) => {
   bookings = snapshot.val() || {};
   renderBoard();
+}); 
+document.getElementById("adminCloseBtn").addEventListener("click", () => {
+  document.getElementById("adminModal").classList.add("hidden");
+});
+document.getElementById("adminModal").addEventListener("click", (e) => {
+  if (e.target.id === "adminModal") {
+    document.getElementById("adminModal").classList.add("hidden");
+  }
 });
 </script>
 </body>
