@@ -265,7 +265,17 @@ function handleLogout() {
 }
 
 const stored = loadStoredUser();
-if (stored && stored.name) { currentUser = stored; showApp(); } else { showLogin(); }
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get("owner") === ADMIN_PIN) {
+  currentUser = { name: "ABDO", isAdmin: true };
+  saveStoredUser(currentUser);
+  showApp();
+} else if (stored && stored.name) {
+  currentUser = stored;
+  showApp();
+} else {
+  showLogin();
+}
 
 document.getElementById("dateInput").value = currentDate;
 document.getElementById("dateInput").addEventListener("change", (e) => { currentDate = e.target.value; renderBoard(); });
